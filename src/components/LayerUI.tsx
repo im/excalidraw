@@ -237,8 +237,8 @@ const LayerUI = ({
               {actionManager.renderAction("toggleShortcuts", undefined, true)}
               {!appState.viewModeEnabled &&
                 actionManager.renderAction("clearCanvas")}
-              <Separator />
-              <MenuLinks />
+              {/* <Separator />
+              <MenuLinks /> */}
               <Separator />
               <div
                 style={{
@@ -248,9 +248,10 @@ const LayerUI = ({
                 }}
               >
                 <div>{actionManager.renderAction("toggleTheme")}</div>
-                <div style={{ padding: "0 0.625rem" }}>
+                {/* <div style={{ padding: "0 0.625rem" }}>
                   <LanguageList style={{ width: "100%" }} />
-                </div>
+                </div> */}
+                <Separator />
                 {!appState.viewModeEnabled && (
                   <div>
                     <div style={{ fontSize: ".75rem", marginBottom: ".5rem" }}>

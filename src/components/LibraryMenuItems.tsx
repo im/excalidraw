@@ -224,7 +224,7 @@ const LibraryMenuItems = ({
             {(pendingElements.length > 0 ||
               unpublishedItems.length > 0 ||
               publishedItems.length > 0) && (
-              <div className="library-menu-items-container__header">
+              <div className="library-menu-items-container__header personal">
                 {t("labels.personalLib")}
               </div>
             )}
@@ -279,6 +279,7 @@ const LibraryMenuItems = ({
             renderLibrarySection(publishedItems)
           ) : unpublishedItems.length > 0 ? (
             <div
+              className="noItems"
               style={{
                 margin: "1rem 0",
                 display: "flex",

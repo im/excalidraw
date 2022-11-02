@@ -208,8 +208,8 @@ export const MobileMenu = ({
         {actionManager.renderAction("toggleShortcuts", undefined, true)}
         {!appState.viewModeEnabled && actionManager.renderAction("clearCanvas")}
         <Separator />
-        <MenuLinks />
-        <Separator />
+        {/* <MenuLinks /> */}
+        {/* <Separator /> */}
         {!appState.viewModeEnabled && (
           <div style={{ marginBottom: ".5rem" }}>
             <div style={{ fontSize: ".75rem", marginBottom: ".5rem" }}>

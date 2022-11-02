@@ -102,7 +102,7 @@
     "locales-coverage:description": "node scripts/locales-coverage-description.js",
     "prepare": "husky install",
     "prettier": "prettier \"**/*.{css,scss,json,md,html,yml}\" --ignore-path=.eslintignore",
-    "start": "react-scripts start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "test:all": "yarn test:typecheck && yarn test:code && yarn test:other && yarn test:app --watchAll=false",
     "test:app": "react-scripts test --passWithNoTests",
     "test:code": "eslint --max-warnings=0 --ext .js,.ts,.tsx .",

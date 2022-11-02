@@ -577,22 +577,22 @@ const ExcalidrawWrapper = () => {
   };
 
   const renderFooter = (isMobile: boolean) => {
-    const renderLanguageList = () => <LanguageList />;
-    if (isMobile) {
-      return (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <div style={{ marginBottom: ".5rem", fontSize: "0.75rem" }}>
-            {t("labels.language")}
-          </div>
-          <div style={{ padding: "0 0.625rem" }}>{renderLanguageList()}</div>
-        </div>
-      );
-    }
+    // const renderLanguageList = () => <LanguageList />;
+    // if (isMobile) {
+    //   return (
+    //     <div
+    //       style={{
+    //         display: "flex",
+    //         flexDirection: "column",
+    //       }}
+    //     >
+    //       <div style={{ marginBottom: ".5rem", fontSize: "0.75rem" }}>
+    //         {t("labels.language")}
+    //       </div>
+    //       <div style={{ padding: "0 0.625rem" }}>{renderLanguageList()}</div>
+    //     </div>
+    //   );
+    // }
 
     return (
       <div style={{ display: "flex", gap: ".5rem", alignItems: "center" }}>
