@@ -685,6 +685,7 @@ export default function App() {
             </button>
           </div>
           <Excalidraw
+            isCollaborating={false}
             ref={(api: ExcalidrawImperativeAPI) => setExcalidrawAPI(api)}
             initialData={initialStatePromiseRef.current.promise}
             onChange={(elements, state) => {
@@ -701,7 +702,6 @@ export default function App() {
             viewModeEnabled={viewModeEnabled}
             zenModeEnabled={zenModeEnabled}
             gridModeEnabled={gridModeEnabled}
-            theme={theme}
             name="Custom name of drawing"
             UIOptions={{ canvasActions: { loadScene: false } }}
             renderTopRightUI={renderTopRightUI}
