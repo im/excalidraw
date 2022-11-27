@@ -517,6 +517,7 @@ class App extends React.Component<AppProps, AppState> {
       onCollabButtonClick,
       renderTopRightUI,
       renderFooter,
+      onPublishLibrarySubmit,
       renderCustomStats,
     } = this.props;
 
@@ -575,6 +576,7 @@ class App extends React.Component<AppProps, AppState> {
                     library={this.library}
                     id={this.id}
                     onImageAction={this.onImageAction}
+                    onPublishLibrarySubmit={onPublishLibrarySubmit}
                     renderWelcomeScreen={
                       this.state.showWelcomeScreen &&
                       this.state.activeTool.type === "selection" &&

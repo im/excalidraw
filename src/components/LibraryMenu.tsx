@@ -173,6 +173,7 @@ export const LibraryMenu: React.FC<{
   onInsertElements: (elements: readonly NonDeletedExcalidrawElement[]) => void;
   libraryReturnUrl: ExcalidrawProps["libraryReturnUrl"];
   focusContainer: () => void;
+  onPublishLibrarySubmit?: () => void;
   library: Library;
   id: string;
 }> = ({
@@ -182,6 +183,7 @@ export const LibraryMenu: React.FC<{
   focusContainer,
   library,
   id,
+  onPublishLibrarySubmit,
 }) => {
   const setAppState = useExcalidrawSetAppState();
   const elements = useExcalidrawElements();
@@ -284,6 +286,7 @@ export const LibraryMenu: React.FC<{
           selectedItems={selectedItems}
           onSelectItems={setSelectedItems}
           library={library}
+          onPublishLibrarySubmit={onPublishLibrarySubmit}
           onRemoveFromLibrary={() =>
             removeFromLibrary(libraryItemsData.libraryItems)
           }

@@ -357,7 +357,7 @@ export const actionChangeStrokeWidth = register({
     <fieldset>
       <legend>{t("labels.strokeWidth")}</legend>
       <ButtonIconSelect
-        group="stroke-width"
+        group="strokeWidth"
         options={[
           {
             value: 1,

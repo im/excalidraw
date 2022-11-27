@@ -77,6 +77,7 @@ interface LayerUIProps {
   libraryReturnUrl: ExcalidrawProps["libraryReturnUrl"];
   UIOptions: AppProps["UIOptions"];
   focusContainer: () => void;
+  onPublishLibrarySubmit?: () => void;
   library: Library;
   id: string;
   onImageAction: (data: { insertOnCanvasDirectly: boolean }) => void;
@@ -106,6 +107,7 @@ const LayerUI = ({
   id,
   onImageAction,
   renderWelcomeScreen,
+  onPublishLibrarySubmit,
 }: LayerUIProps) => {
   const device = useDevice();
 
@@ -429,6 +431,7 @@ const LayerUI = ({
         libraryReturnUrl={libraryReturnUrl}
         focusContainer={focusContainer}
         library={library}
+        onPublishLibrarySubmit={onPublishLibrarySubmit}
         id={id}
       />
     ) : null;

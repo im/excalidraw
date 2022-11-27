@@ -32,6 +32,7 @@ export const LibraryMenuHeader: React.FC<{
   selectedItems: LibraryItem["id"][];
   library: Library;
   onRemoveFromLibrary: () => void;
+  onPublishLibrarySubmit?: () => void;
   resetLibrary: () => void;
   onSelectItems: (items: LibraryItem["id"][]) => void;
   appState: AppState;
@@ -43,6 +44,7 @@ export const LibraryMenuHeader: React.FC<{
   resetLibrary,
   onSelectItems,
   appState,
+  onPublishLibrarySubmit,
 }) => {
   const [libraryItemsData] = useAtom(libraryItemsAtom, jotaiScope);
 
@@ -213,6 +215,7 @@ export const LibraryMenuHeader: React.FC<{
                 selectedItems,
               )}
               appState={appState}
+              onPublishLibrarySubmit={onPublishLibrarySubmit}
               onSuccess={(data) =>
                 onPublishLibSuccess(data, libraryItemsData.libraryItems)
               }

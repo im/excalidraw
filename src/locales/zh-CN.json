@@ -104,7 +104,7 @@
     "showBackground": "显示背景颜色选择器",
     "toggleTheme": "切换主题",
     "personalLib": "个人素材库",
-    "excalidrawLib": "Excalidraw 素材库",
+    "excalidrawLib": "公共素材库",
     "decreaseFontSize": "缩小字体大小",
     "increaseFontSize": "放大字体大小",
     "unbindText": "取消文本绑定",
@@ -357,8 +357,8 @@
   },
   "publishSuccessDialog": {
     "title": "素材库已提交",
-    "content": "谢谢你 {{authorName}}。您的素材库已被提交审核。跟进此次提交的状态请点击",
-    "link": "此处"
+    "content": "谢谢你 {{authorName}}。您的素材库已提交。点击",
+    "link": "查看素材"
   },
   "confirmDialog": {
     "resetLibrary": "重置素材库",

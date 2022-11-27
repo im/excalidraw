@@ -29,6 +29,12 @@ interface PublishLibraryDataParams {
   website: string;
 }
 
+declare global {
+  interface Window {
+    librarysLink: "";
+  }
+}
+
 const LOCAL_STORAGE_KEY_PUBLISH_LIBRARY = "publish-library-data";
 
 const savePublishLibDataToStorage = (data: PublishLibraryDataParams) => {
@@ -134,8 +140,10 @@ const PublishLibrary = ({
   onError,
   updateItemsInStorage,
   onRemove,
+  onPublishLibrarySubmit,
 }: {
   onClose: () => void;
+  onPublishLibrarySubmit?: () => void;
   libraryItems: LibraryItems;
   appState: AppState;
   onSuccess: (data: {
@@ -201,7 +209,8 @@ const PublishLibrary = ({
       return;
     }
 
-    const previewImage = await generatePreviewImage(clonedLibItems);
+    // const previewImage = await generatePreviewImage(clonedLibItems);
+    const previewImage = "";
 
     const libContent: ExportedLibraryData = {
       type: EXPORT_DATA_TYPES.excalidrawLibrary,
@@ -209,13 +218,29 @@ const PublishLibrary = ({
       source: EXPORT_SOURCE,
       libraryItems: clonedLibItems,
     };
+
+    if (onPublishLibrarySubmit) {
+      // @ts-ignore
+      onPublishLibrarySubmit({
+        libContent,
+        title: libraryData.name,
+        authorName: libraryData.authorName,
+        name: libraryData.name,
+        description: libraryData.description,
+        onSuccess,
+        onError,
+        setIsSubmitting,
+      });
+      return;
+    }
+
     const content = JSON.stringify(libContent, null, 2);
     const lib = new Blob([content], { type: "application/json" });
 
     const formData = new FormData();
     formData.append("excalidrawLib", lib);
     formData.append("previewImage", previewImage);
-    formData.append("previewImageType", previewImage.type);
+    // formData.append("previewImageType", previewImage.type);
     formData.append("title", libraryData.name);
     formData.append("authorName", libraryData.authorName);
     formData.append("githubHandle", libraryData.githubHandle);
@@ -310,7 +335,7 @@ const PublishLibrary = ({
           <div className="publish-library-note">
             {t("publishDialog.noteDescription.pre")}
             <a
-              href="https://libraries.excalidraw.com"
+              href={window.librarysLink}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -318,7 +343,7 @@ const PublishLibrary = ({
             </a>{" "}
             {t("publishDialog.noteDescription.post")}
           </div>
-          <span className="publish-library-note">
+          {/* <span className="publish-library-note">
             {t("publishDialog.noteGuidelines.pre")}
             <a
               href="https://github.com/excalidraw/excalidraw-libraries#guidelines"
@@ -328,7 +353,7 @@ const PublishLibrary = ({
               {t("publishDialog.noteGuidelines.link")}
             </a>
             {t("publishDialog.noteGuidelines.post")}
-          </span>
+          </span> */}
 
           <div className="publish-library-note">
             {t("publishDialog.noteItems")}
@@ -388,7 +413,7 @@ const PublishLibrary = ({
                 placeholder={t("publishDialog.placeholder.authorName")}
               />
             </label>
-            <label>
+            {/* <label>
               <span>{t("publishDialog.githubUsername")}</span>
               <input
                 type="text"
@@ -397,8 +422,8 @@ const PublishLibrary = ({
                 onChange={onInputChange}
                 placeholder={t("publishDialog.placeholder.githubHandle")}
               />
-            </label>
-            <label>
+            </label> */}
+            {/* <label>
               <span>{t("publishDialog.twitterUsername")}</span>
               <input
                 type="text"
@@ -407,8 +432,8 @@ const PublishLibrary = ({
                 onChange={onInputChange}
                 placeholder={t("publishDialog.placeholder.twitterHandle")}
               />
-            </label>
-            <label>
+            </label> */}
+            {/* <label>
               <span>{t("publishDialog.website")}</span>
               <input
                 type="text"
@@ -419,8 +444,8 @@ const PublishLibrary = ({
                 onChange={onInputChange}
                 placeholder={t("publishDialog.placeholder.website")}
               />
-            </label>
-            <span className="publish-library-note">
+            </label> */}
+            {/* <span className="publish-library-note">
               {t("publishDialog.noteLicense.pre")}
               <a
                 href="https://github.com/excalidraw/excalidraw-libraries/blob/main/LICENSE"
@@ -430,7 +455,7 @@ const PublishLibrary = ({
                 {t("publishDialog.noteLicense.link")}
               </a>
               {t("publishDialog.noteLicense.post")}
-            </span>
+            </span> */}
           </div>
           <div className="publish-library__buttons">
             <DialogActionButton

@@ -2,6 +2,12 @@ import { VERSIONS } from "../constants";
 import { t } from "../i18n";
 import { AppState, ExcalidrawProps } from "../types";
 
+declare global {
+  interface Window {
+    librarysLink: "";
+  }
+}
+
 const LibraryMenuBrowseButton = ({
   theme,
   id,
@@ -16,11 +22,7 @@ const LibraryMenuBrowseButton = ({
   return (
     <a
       className="library-menu-browse-button"
-      href={`${process.env.REACT_APP_LIBRARY_URL}?target=${
-        window.name || "_blank"
-      }&referrer=${referrer}&useHash=true&token=${id}&theme=${theme}&version=${
-        VERSIONS.excalidrawLibrary
-      }`}
+      href={window.librarysLink}
       target="_excalidraw_libraries"
     >
       {t("labels.libraries")}
